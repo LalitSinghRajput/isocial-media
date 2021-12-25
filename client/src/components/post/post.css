@@ -1,0 +1,129 @@
+.postContainer {
+  width: 100%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 1px 16px -8px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 1px 16px -8px rgba(0, 0, 0, 0.68);
+  margin: 30px 0;
+}
+.postWrapper {
+  padding: 10px;
+}
+
+.postTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.postTopLeft {
+  display: flex;
+  align-items: center;
+}
+.moreOptions {
+  cursor: pointer;
+}
+.postProfileimg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.postUsername {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 10px;
+}
+.postDate {
+  font-size: 12px;
+}
+
+.postCenter {
+  margin: 20px 0;
+}
+.postImg {
+  margin-top: 20px;
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.postBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.postBtnLeft {
+  display: flex;
+  align-items: center;
+}
+.likeIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.postLikeCounter {
+  font-size: 15px;
+}
+.postCommentText {
+  cursor: pointer;
+  border-bottom: 1px dashed gray;
+  font-size: 15px;
+}
+
+.postLiked {
+  color: blue;
+}
+
+.deleteIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.moreOptionsMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: end;
+  position: absolute;
+  /* top: 49%;
+  left: 62.25%; */
+  margin: 1rem --7.9rem;
+  min-width: 150px;
+  margin-top: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 5 rgba(0, 0, 0, 0.2);
+  background-color: bisque;
+}
+.moreOptions .moreOptionsDiv{
+    padding: 1rem;
+    margin: 1rem 2rem;
+}
+
+/* Animation used from https://animista.net/play/basic/scale-up */
+.scale-up-center {
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
+  animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}

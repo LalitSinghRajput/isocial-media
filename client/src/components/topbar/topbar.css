@@ -1,0 +1,182 @@
+.topbar_container {
+  height: 50px;
+  width: 100%;
+  background-color: #1877f2;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.topbarLeft {
+  /* border: 2px solid red; */
+  flex: 3;
+}
+.topbarLeft a {
+  text-decoration: none;
+}
+.logo {
+  font-size: 24px;
+  margin-left: 20px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+.topbarCenter {
+  /* border: 2px solid green; */
+  flex: 8;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchBar {
+  width: 100%;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+}
+.searchIcon {
+  font-size: 20px !important;
+  margin-left: 10px;
+}
+.searchInput {
+  border: none;
+  width: 70%;
+}
+.searchInput:focus {
+  outline: none;
+}
+.topbarRight {
+  /* border: 2px solid yellow; */
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #fff;
+}
+.topbarLinks {
+  margin-right: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.topbarIcons {
+  display: flex;
+}
+.topbarIconItem {
+  margin-right: 15px;
+  cursor: pointer;
+  position: relative;
+}
+.topbarIconBadge {
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 50%;
+  color: #fff;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.topbarImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* this class will get activate for small screen device (mobile size) */
+.menuBarContainer {
+  /* border: 2px solid red; */
+  display: flex;
+  /* justify-content: flex-end; */
+  align-items: center;
+  flex-direction: column;
+  text-align: end;
+  background: var(--color-footer);
+  position: absolute;
+  top: 35px;
+  right: 0;
+  margin-top: 1rem;
+  min-width: 210px;
+  border-radius: 5px;
+  box-shadow: 0 0 5 rgba(0, 0, 0, 0.2);
+}
+.menu {
+  background-color: #201e1e;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.menuItems {
+  /* border: 2px solid blue; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.items {
+  /* border: 2px solid green; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0.5rem 0;
+  margin-left: 0.5rem;
+}
+.itemLink:hover {
+  color: wheat;
+}
+.items .topBarbtn {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+}
+.itemLink {
+  /* border: 2px solid yellow; */
+  text-decoration: none;
+  color: #fff;
+}
+.menuText {
+  margin: auto 1rem;
+  font-size: 1.2rem;
+}
+.menuIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  filter: invert(-1);
+}
+
+/* RESPONSIVNESS */
+@media screen and (max-width: 1050px) {
+  .topbarCenter {
+    display: none;
+  }
+  .topbarIcons {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* for small screen mobile devices */
+@media screen and (max-width: 550px) {
+  .topbarRight {
+    display: none;
+  }
+  .menuBarContainer {
+    top: 20px;
+  }
+}

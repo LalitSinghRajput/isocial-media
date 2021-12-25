@@ -1,0 +1,165 @@
+.sidebar {
+  /* border: 2px solid red; */
+  flex: 3;
+  height: 92vh;
+  overflow-y: scroll;
+  position: sticky;
+  top: 50px;
+  transition: all 0.8s ease-in-out;
+}
+
+/* to hide scorollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(230, 230, 230);
+}
+.expand_collapse_container {
+  /* border: 2px solid red; */
+  position: fixed;
+  left: 23%;
+  transition: all 0.8s ease-in-out;
+}
+.collapseContainer {
+  /* border: 2px solid red; */
+  width: 10%;
+  transition: all 0.8s ease-in-out;
+}
+.expand_coallapseImg {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  transition: all 0.8s ease-in-out;
+}
+.sidebarWrapperHide {
+  display: none !important;
+  transition: all 0.8s ease-in-out;
+}
+.sidebarWrapper {
+  /* background-color: greenyellow; */
+  padding: 20px;
+  transition: all 0.8s ease-in-out;
+}
+.sidebarCollapse {
+  display: block;
+  position: relative;
+  width: 3%;
+  transition: all 0.8s ease-in-out;
+}
+.sidebarList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.sidebarListItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.sidbebarIcons {
+  margin-right: 15px;
+}
+.sidebarBtn {
+  width: 150px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+.sidebarHr {
+  margin: 20px 0;
+}
+.sidebarTitlecontainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidebarTitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.sidebarFriendList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebarFriend {
+  /* border: 2px solid red; */
+  display: flex;
+  width: 70%;
+  justify-content: flex-start;
+  align-items: center;
+}
+.sidebarFriendName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: auto 0;
+}
+.sidebarFriendImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.rightBarFollowBtn {
+  height: 30px;
+  width: 100px;
+  border-radius: 10px;
+  border: none;
+  background-color: #1775ee;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 0.5rem;
+}
+.rightbarFollowersection {
+  /* border: 2px solid yellow; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rightBarbtntxt {
+  font-size: 1rem;
+}
+.rightBarbtntxt {
+  margin: 0.2rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.slide-left {
+  -webkit-animation: slide-left 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    both;
+  animation: slide-left 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+@-webkit-keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
+}
+@keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
+}
+
+/* Reponsivness */

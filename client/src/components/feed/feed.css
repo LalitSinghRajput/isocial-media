@@ -1,0 +1,11 @@
+.feed {
+  /* border: 2px solid green; */
+  flex: 5.5;
+  /* height: 92vh; */
+  /* overflow-y: scroll; */
+}
+
+/* media queries */
+
+@media only screen and (max-width: 1000px) {
+}

@@ -1,0 +1,199 @@
+.login {
+  /* border: 2px solid red; */
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f2f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginWrapper {
+  /* border: 2px solid blue; */
+  width: 100%;
+  height: 94%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginLeft,
+.loginRight {
+  /* border: 2px solid green; */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginLogo {
+  font-size: 50px;
+  font-weight: bold;
+  color: #1775ee;
+  margin-bottom: 10px;
+}
+.loginDesc {
+  font-size: 24px;
+}
+.loginBox {
+  height: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.loginUserImg {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  margin: 0.5rem auto;
+}
+.loginInput {
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: 18px;
+  padding: 20px;
+}
+.loginBtn:focus {
+  outline: none;
+}
+.loginBtn {
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #1775ee;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.loginForgot {
+  text-align: center;
+  color: #1775ee;
+}
+.loginRegisterBtn {
+  width: 60%;
+  align-self: center;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #42b72a;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Responsivness */
+@media screen and (max-width: 1045px) {
+  .loginWrapper {
+    flex-direction: column;
+    /* width: 100%;
+    height: 100%; */
+    justify-content: space-between;
+  }
+  .loginLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .loginLeft .loginLogo {
+    font-size: 2.5rem;
+  }
+  .loginLeft .loginDesc {
+    font-size: 1.5rem;
+  }
+  .loginRight,
+  .loginLeft {
+    width: 85%;
+    height: 95%;
+  }
+}
+
+@media screen and (max-width: 986px) {
+  .loginLeft .loginLogo {
+    font-size: 2.2rem;
+  }
+  .loginLeft .loginDesc {
+    font-size: 1.3rem;
+  }
+  .loginRight,
+  .loginLeft {
+    width: 100%;
+    height: 100%;
+  }
+  .loginUserImg {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+@media screen and (max-width: 725px) {
+  .loginLeft .loginLogo {
+    font-size: 2rem;
+  }
+  .loginLogo {
+    font-size: 1.2rem;
+  }
+  .loginLeft .loginDesc {
+    font-size: 1rem;
+  }
+  .loginRight,
+  .loginLeft {
+    width: 100%;
+    height: 100%;
+  }
+  .loginUserImg {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+}
+@media screen and (max-width: 559px) {
+  .loginLeft .loginLogo {
+    font-size: 1.8rem;
+  }
+  .loginLeft .loginDesc {
+    font-size: 0.9rem;
+  }
+  .loginRight,
+  .loginLeft {
+    width: 100%;
+    height: 100%;
+  }
+  .loginNewAccTxt {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 512px) {
+  .loginLeft .loginLogo {
+    font-size: 1.5rem;
+  }
+  .loginLeft .loginDesc {
+    font-size: 0.8rem;
+  }
+  .loginRight,
+  .loginLeft {
+    width: 100%;
+    height: 100%;
+  }
+  .loginNewAccTxt {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 465px) {
+  .loginLeft .loginLogo {
+    font-size: 1.5rem;
+  }
+  .loginLeft .loginDesc {
+    font-size: 0.7rem;
+  }
+  .loginRight,
+  .loginLeft {
+    width: 100%;
+    height: 100%;
+  }
+  .loginNewAccTxt {
+    font-size: 0.8rem;
+  }
+}
