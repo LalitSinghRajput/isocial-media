@@ -59,16 +59,24 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         enum: [1, 2, 3]
     },
+    tokens: [           // array of objects as use will login multiple times
+        {
+            token: {
+                type: String,
+                required: true
+            }
+        }
+    ]
 },
     { timestamps: true }
 );
 
-// function to generate token
+//we are generating token
 UserSchema.methods.generateAuthToken = async function () {
     try {
         let token = jwt.sign({ _id: this._id }, jwtSecret);
         this.tokens = this.tokens.concat({ token: token });
-        // await this.save();
+        await this.save();
         return token;
     } catch (error) {
         console.log(error);
