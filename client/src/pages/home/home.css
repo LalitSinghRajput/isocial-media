@@ -1,7 +1,19 @@
-.homeContainer{
-    /* border: 2px solid grey; */
-    display: flex;
-    width: 100%;
-    
+.homeContainer {
+  /* border: 2px solid grey; */
+  display: flex;
+  width: 100%;
+}
+.homeDiv {
+  /* border: 2px solid black; */
+  display: flex;
 }
 
+
+@media only screen and (max-width: 1000px) {
+  .homeContainer {
+    flex-direction: column-reverse;
+  }
+  .homeSidebar {
+    width: 2%;
+  }
+}

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import './profile.css'
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+
 import addIcon from '../../assets/icons/addIcon.png'
 import done from '../../assets/icons/done.png'
 import 'react-circular-progressbar/dist/styles.css';
@@ -23,15 +24,13 @@ import { storage } from '../../firebase.js'
 const Profile = () => {
 
     const [user, setUser] = useState({})
-    const [file, setFile] = useState(null)
+    const [coverPic, setCoverPic] = useState(null)
+    const [profilePic, setProfilePic] = useState(null)
     const [coverPicProgress, setCoverPicProgress] = useState(0);
     const [profilePicProgress, setProfilePicProgress] = useState(0);
 
-    console.log(file);
     const currUser = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null
-
     const username = useParams().username;
-
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -78,6 +77,7 @@ const Profile = () => {
         },
             (error) => {
                 console.log(error);
+                alert('Failed to upload Please try again later')
             },
             // when file successfully uploaded we get the url 
             () => {
@@ -111,6 +111,7 @@ const Profile = () => {
         e.preventDefault();
 
         const fileName = e.target[0].files[0];
+        setCoverPic(fileName);
         uploadFiles(fileName, "coverPicture")
     }
 
@@ -118,6 +119,7 @@ const Profile = () => {
         e.preventDefault();
 
         const fileName = e.target[0].files[0];
+
         uploadFiles(fileName, "profilePicture")
     }
 
@@ -138,35 +140,40 @@ const Profile = () => {
                             {(username === currUser?.username) &&
                                 (<form onSubmit={coverPictureHandle} className="coverForm">
                                     <div>
-                                        <input
-                                            // style={{ display: "none" }}
-                                            className="profileInp"
-                                            id="file"
-                                            name="filename"
-                                            type="file"
-                                            accept=".png,.jpg,.jpeg,.mp4"
-                                            onChange={(e) => setFile(e.target.files[0])}
-                                        />
+                                        <label>
+                                            <img className="uploadIcon" src={addIcon} alt="." />
+                                            <span className="photo_video"></span>
+                                            <input
+                                                style={{ display: "none" }}
+                                                className="profileInp"
+                                                id="coverFile"
+                                                name="coverFile"
+                                                type="file"
+                                                accept=".png,.jpg,.jpeg,.mp4"
+                                                onChange={(e) => setCoverPic(e.target.files[0])}
+                                            />
+                                        </label>
                                     </div>
                                     <div className="btnProgrssdiv">
-                                        <button
-                                            className="uploadImgBtn"
+                                        {coverPic && (<button
+                                            className="uploadImgBtn shareBtn"
                                             type="submit">
-                                            <img className="icon" src={addIcon} alt="." />
-                                        </button>
-                                        {coverPicProgress > 0 &&
-                                            <div className="progressBarDiv">
+                                            Upload
+                                            {coverPicProgress > 0 &&
+                                                <div className="progressBarDiv">
 
-                                                <CircularProgressbarWithChildren value={coverPicProgress}>
-                                                    {
-                                                        (coverPicProgress < 100) ? (<div style={{ fontSize: 15, marginTop: -5 }}>
-                                                            <strong></strong></div>)
-                                                            : (<img className="addIcon" src={done} alt="." />)
+                                                    <CircularProgressbarWithChildren value={coverPicProgress}>
+                                                        {
+                                                            (coverPicProgress < 100) ? (<div style={{ fontSize: 15, marginTop: -5 }}>
+                                                                <strong></strong></div>)
+                                                                : (<img className="addIcon" src={done} alt="." />)
 
-                                                    }
-                                                </CircularProgressbarWithChildren>
+                                                        }
+                                                    </CircularProgressbarWithChildren>
 
-                                            </div>
+                                                </div>
+                                            }
+                                        </button>)
                                         }
                                     </div>
 
@@ -180,36 +187,40 @@ const Profile = () => {
                                 {(username === currUser?.username) && (
                                     <form onSubmit={profilePictureHandle} className="userProfileForm">
                                         <div>
-                                            <input
-                                                // style={{ display: "none" }}
-                                                placeholder=""
-                                                className="profileInp"
-                                                id="file"
-                                                name="filename"
-                                                type="file"
-                                                accept=".png,.jpg,.jpeg,.mp4"
-                                                onChange={(e) => setFile(e.target.files[0])}
-                                            />
+                                            <label>
+                                                <img className="uploadIcon" src={addIcon} alt="." />
+                                                <span className="photo_video"></span>
+                                                <input
+                                                    style={{ display: "none" }}
+                                                    className="profileInp"
+                                                    id="profileFile"
+                                                    name="profileFile"
+                                                    type="file"
+                                                    accept=".png,.jpg,.jpeg,.mp4"
+                                                    onChange={(e) => setProfilePic(e.target.files[0])}
+                                                />
+                                            </label>
                                         </div>
-                                        <div className="btnProgrssdiv">
-                                            <button
-                                                className="uploadImgBtn"
+                                        <div className="profilebtnProgrssdiv">
+                                            {profilePic && <button
+                                                className="uploadImgBtn uploadProfilePicBtn shareBtn"
                                                 type="submit">
-                                                <img className="icon" src={addIcon} alt="." />
+                                                Upload
+                                                {profilePicProgress > 0 &&
+                                                    <div className="progressBarDiv">
+
+                                                        <CircularProgressbarWithChildren value={profilePicProgress}>
+                                                            {
+                                                                (profilePicProgress < 100) ? (<div style={{ fontSize: 15, marginTop: -5 }}>
+                                                                    <strong></strong></div>)
+                                                                    : (<img className="addIcon" src={done} alt="." />)
+
+                                                            }
+                                                        </CircularProgressbarWithChildren>
+
+                                                    </div>
+                                                }
                                             </button>
-                                            {profilePicProgress > 0 &&
-                                                <div className="progressBarDiv">
-
-                                                    <CircularProgressbarWithChildren value={profilePicProgress}>
-                                                        {
-                                                            (profilePicProgress < 100) ? (<div style={{ fontSize: 15, marginTop: -5 }}>
-                                                                <strong></strong></div>)
-                                                                : (<img className="addIcon" src={done} alt="." />)
-
-                                                        }
-                                                    </CircularProgressbarWithChildren>
-
-                                                </div>
                                             }
                                         </div>
                                     </form>
@@ -221,8 +232,8 @@ const Profile = () => {
                         </div>
 
                         <div className="profileInfo">
-                            <h4 className="profileInfoName">{user.username}</h4>
-                            <h4 className="profileInfoDesc">{user.desc}</h4>
+                            <span className="profileInfoName">{user.username}</span>
+                            <span className="profileInfoDesc">{user.desc}</span>
 
                         </div>
 

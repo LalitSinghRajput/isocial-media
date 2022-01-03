@@ -1,8 +1,10 @@
 import React, { useContext, useRef } from 'react'
 import './updateProfile.css';
+import Topbar from '../../components/topbar/Topbar';
 import { AuthContext } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { axiosInstance } from '../../config';
+import userImg from '../../assets/icons/user.png'
 
 const UpdateProfile = () => {
 
@@ -43,51 +45,70 @@ const UpdateProfile = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={submitHandle}>
-                <div>
-                    <label htmlFor="">Username</label>
-                    <input
-                        placeholder=""
-                        className="loginInput"
-                        required
-                        ref={username}
-                    />
+        <div className="updateProfileContainer">
+            <Topbar />
+            <form onSubmit={submitHandle} className="updateProfileForm">
+
+                <div className="updateProfileItemsContainer">
+                    <img src={user.profilePicture ? user.profilePicture : userImg} className="updateProfileImg" alt="." />
                 </div>
 
-                <div>
-                    <label htmlFor="">Add Description</label>
-                    <input
-                        placeholder=""
-                        className="loginInput"
-                        required
-                        ref={desc}
-                    />
+                <div className="updateProfileItemsContainer">
+                    <div className="updateProfileInp">
+                        <label htmlFor="">Username</label>
+                    </div>
+                    <div className="updateProfileInp">
+                        <input
+                            placeholder=""
+                            className="updateProfInpField"
+                            required
+                            ref={username}
+                        />
+                    </div>
                 </div>
 
-                <div>
-                    <label htmlFor="">From</label>
-                    <input
-                        placeholder=""
-                        className="loginInput"
-                        required
-                        ref={from}
-                    />
+                <div className="updateProfileItemsContainer">
+                    <div className="updateProfileInp">
+                        <label htmlFor="">Add Description</label>
+                    </div>
+                    <div className="updateProfileInp">
+                        <textarea
+                            placeholder=""
+                            className="updateProftextArea"
+                            ref={desc}
+                        />
+                    </div>
                 </div>
 
-                <div>
-                    <label htmlFor="">City</label>
-                    <input
-                        placeholder=""
-                        className="loginInput"
-                        required
-                        ref={city}
-                    />
+                <div className="updateProfileItemsContainer">
+                    <div className="updateProfileInp">
+                        <label htmlFor="">From</label>
+                    </div>
+                    <div className="updateProfileInp">
+                        <input
+                            placeholder=""
+                            className="updateProfInpField"
+                            ref={from}
+                        />
+                    </div>
                 </div>
 
-                <div>
+                <div className="updateProfileItemsContainer">
+                    <div className="updateProfileInp">
+                        <label htmlFor="">City</label>
+                    </div>
+                    <div className="updateProfileInp">
+                        <input
+                            placeholder=""
+                            className="updateProfInpField"
+                            ref={city}
+                        />
+                    </div>
+                </div>
+
+                <div className="updateProfileItemsContainer">
                     <button
-                        className="loginBtn"
+                        className="loginBtn updateProfileSubmitBtn"
                         type="submit">Submit</button>
                 </div>
             </form>

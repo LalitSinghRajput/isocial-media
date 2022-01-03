@@ -89,7 +89,7 @@ router.post('/login', async (req, res) => {
         // all things are good than  create and assign a token
 
         token = await user.generateAuthToken();
-        console.log(token);
+        // console.log(token);
 
         // store authToken in cookie
         // cookie will get expire in 30 days
@@ -115,7 +115,7 @@ router.get("/logout", authenticate, async (req, res) => {
         res.clearCookie('authToken', { path: '/' });
         res.clearCookie('user', { path: '/' });
 
-        await req.rootUser.save();
+        res.send(200).send("Logout done successfully")
 
     } catch (error) {
         res.status(500).send(error);

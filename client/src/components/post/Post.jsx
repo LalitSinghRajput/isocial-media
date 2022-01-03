@@ -80,27 +80,29 @@ const Post = ({ post }) => {
                         <span className="postUsername">{user.username}</span>
                         <span className="postDate">{format(post.createdAt)}</span>
                     </div>
-                    <div className="postTopRight">
-                        {
-                            (toggleMenu)
-                                ? <Close color="#fff" className="moreOptions" size={27} onClick={() => setToggleMenu(false)} />
-                                : <MoreVert color="#fff" className="moreOptions" size={27} onClick={() => setToggleMenu(true)} />
-                        }
+                    {(user?._id === currentUser?._id) &&
+                        <div className="postTopRight">
+                            {
+                                (toggleMenu)
+                                    ? <Close color="#fff" className="moreOptions" size={27} onClick={() => setToggleMenu(false)} />
+                                    : <MoreVert color="#fff" className="moreOptions" size={27} onClick={() => setToggleMenu(true)} />
+                            }
 
-                        {(toggleMenu) && (
-                            <div className="moreOptionsMenu scale-up-center">
+                            {(toggleMenu) && (
+                                <div className="moreOptionsMenu scale-up-center">
 
-                                {/* <div className="moreOptionsDiv">
+                                    {/* <div className="moreOptionsDiv">
                                     <DeleteOutlineRounded onClick={deletePostHandle} /> Update Post
                                 </div> */}
-                                <div className="moreOptionsDiv">
-                                    <Delete onClick={deletePostHandle} /> Delete Post
+                                    <div className="moreOptionsDiv">
+                                        <Delete onClick={deletePostHandle} /> <span className="moreOptionsDeleteTitle">Delete Post</span>
+                                    </div>
+
                                 </div>
 
-                            </div>
-
-                        )}
-                    </div>
+                            )}
+                        </div>
+                    }
                 </div>
                 <div className="postCenter">
                     <span className="postText">

@@ -69,35 +69,44 @@
   border-bottom: 1px dashed gray;
   font-size: 15px;
 }
-
-.postLiked {
-  color: blue;
-}
-
 .deleteIcon {
   width: 24px;
   height: 24px;
 }
+.postTopRight {
+  /* border: 2px solid red; */
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+  /* align-items: center; */
+}
 
 .moreOptionsMenu {
+  border: 2px solid gray;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: end;
   position: absolute;
-  /* top: 49%;
-  left: 62.25%; */
-  margin: 1rem --7.9rem;
-  min-width: 150px;
-  margin-top: 1rem;
+  width: 150px;
+  margin-top: 2rem;
   border-radius: 5px;
   box-shadow: 0 0 5 rgba(0, 0, 0, 0.2);
-  background-color: bisque;
+  background-color: rgb(243, 240, 236);
 }
-.moreOptions .moreOptionsDiv{
-    padding: 1rem;
-    margin: 1rem 2rem;
+.moreOptionsDeleteTitle {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  cursor: pointer;
+}
+.moreOptionsDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 /* Animation used from https://animista.net/play/basic/scale-up */
@@ -125,5 +134,24 @@
   100% {
     -webkit-transform: scale(1);
     transform: scale(1);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .moreOptionsMenu {
+    width: 120px;
+    height: 30px;
+  }
+  .moreOptionsDeleteTitle {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .moreOptionsMenu {
+    width: 90px;
+    height: 30px;
+  }
+  .moreOptionsDeleteTitle {
+    font-size: 12px;
   }
 }

@@ -7,7 +7,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { Add, Remove } from '@material-ui/icons';
 import Following from '../following/Following';
 
-const Rightbar = ({ user }) => {
+const Rightbar = ({ user, isProfilePage }) => {
 
     const { user: currentUser, dispatch } = useContext(AuthContext);
 
@@ -18,7 +18,6 @@ const Rightbar = ({ user }) => {
     const [followings, setFollowings] = useState([])
     const [toggleFollower, setToggleFollower] = useState(false);
     const [toggleFollowing, setToggleFollowing] = useState(false);
-
 
     useEffect(() => {
         const getFollowers = async () => {
@@ -39,7 +38,6 @@ const Rightbar = ({ user }) => {
         const getFollowings = async () => {
             try {
                 const followingsList = await axiosInstance.get("/users/followings/" + user?._id);
-                // console.log(currentUser.id);
 
                 setFollowings(followingsList.data);
 
@@ -76,9 +74,10 @@ const Rightbar = ({ user }) => {
     const ProfileRightBar = () => {
         return (
             <>
+                {setFollowed(currUser?.followings?.includes(user._id))}
                 {
                     (user && currentUser) && (user.username !== currentUser.username) && (
-                        <button className="rightbarFollowingBtn" onClick={handleFollowClick}>
+                        <button className={followed ? "unfollowBtn rightbarFollowingBtn" : "followBtn rightbarFollowingBtn"} onClick={handleFollowClick}>
 
                             {followed ? "Unfollow" : "Follow"}
                             {followed ? <Remove /> : <Add />}
@@ -91,22 +90,16 @@ const Rightbar = ({ user }) => {
                 <p className="rightBarTitle">About {user.username}</p>
                 <div className="rightbarInfo">
                     <div className="rightBarInfoItem">
-                        <ul>
-                            <li>
-                                <span className="rightBarInfoKey">City:</span>
-                                <span className="rightBarInfoKey">{user.city}</span>
-                            </li>
+                        {/* <ul> */}
+                        <div className="rightBarInfoItemContainer">
+                            <p className="rightBarInfoKey">City:</p>
+                            <p className="rightBarInfoKey">{user.city}</p>
+                        </div>
 
-                            <li>
-                                <span className="rightBarInfoKey">From:</span>
-                                <span className="rightBarInfoKey">{user.from}</span>
-                            </li>
-
-                            <li>
-                                <span className="rightBarInfoKey">Relationship</span>
-                                <span className="rightBarInfoKey">{user.relationship === 1 ? "Single" : user.relationship === 2 ? "Married" : "."}</span>
-                            </li>
-                        </ul>
+                        <div className="rightBarInfoItemContainer">
+                            <p className="rightBarInfoKey">From:</p>
+                            <p className="rightBarInfoKey">{user.from}</p>
+                        </div>
 
 
                     </div>
@@ -124,10 +117,10 @@ const Rightbar = ({ user }) => {
                         </button>
                     </div>
 
-                    {/* followers list of a user */}
+                    {/* followers divst of a user */}
                     {toggleFollower && <Followers user={user} />}
 
-                    {/* followings list of a user */}
+                    {/* followings divst of a user */}
                     {toggleFollowing && <Following user={user} />}
 
 

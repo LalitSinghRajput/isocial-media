@@ -1,0 +1,78 @@
+.updateProfileContainer {
+  /* border: 2px solid black; */
+  width: 100%;
+  height: 100vh;
+}
+.updateProfileImg {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+.updateProfileForm {
+  /* border: 2px solid blue; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  margin-top: 2rem;
+  align-items: center;
+}
+.updateProfileItemsContainer {
+  /* border: 2px solid red; */
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem auto;
+}
+.updateProfileInp {
+  /* border: 2px solid blue; */
+  width: 30%;
+  margin-right: 1rem;
+}
+.updateProfileInp label {
+  font-size: 1.5rem;
+}
+.updateProfInpField {
+  border: 1px solid rgb(116, 116, 116);
+  border-radius: 12px;
+  width: 100%;
+  height: 2.5rem;
+  padding: 1rem;
+}
+.updateProftextArea {
+  width: 100%;
+  height: 5rem;
+  resize: none;
+  padding: 1rem;
+}
+.updateProfileSubmitBtn {
+  width: 30%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .updateProfileItemsContainer {
+    width: 80%;
+  }
+  .updateProfileInp {
+    width: 40%;
+  }
+  .updateProfileInp label {
+    font-size: 1.3rem;
+  }
+  .updateProfileImg {
+    width: 150px;
+    height: 150px;
+  }
+}
+@media only screen and (max-width: 490px) {
+  .updateProfileItemsContainer {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .updateProfileInp label {
+    font-size: 1rem;
+  }
+}

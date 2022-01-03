@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'; import defaultAvtar from '../../assets/Person images/defaultAvtar.jpg';
 import { axiosInstance } from '../../config';
+import Spinner from '../spinner/Spinner'
+
 
 const Following = ({ user }) => {
 
@@ -27,9 +29,16 @@ const Following = ({ user }) => {
             <h3>Followings List</h3>
             <div className="rightBarFollowers">
                 {
+                    followings.length === 0 && (
+                        <div className="followersSpinnerContainer">
+                            <Spinner />
+                        </div>
+                    )
+                }
+                {
                     followings.map(friend => {
                         return (
-                            <Link to={"/profile/" + friend.username}>
+                            <Link className="friendUsername followLink" to={"/profile/" + friend.username}>
                                 <div className="rightBarFollowing">
                                     <img src={friend.profilePicture ? friend.profilePicture : defaultAvtar} alt="." className="rightBarFollowingImg" />
                                     <span className="rightBarFollowingName">{friend.username}</span>

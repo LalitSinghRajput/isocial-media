@@ -53,15 +53,17 @@
   margin-right: 3px;
 }
 
-.shareOptionText {
+.shareOptionText,
+.photo_video {
   font-size: 14px;
   font-weight: 500;
 }
 .shareBtn {
   border: none;
+  outline: none;
   padding: 7px;
   border-radius: 5px;
-  background-color: green;
+  background-color: #e45934;
   font-weight: 500;
   margin-right: 20px;
   cursor: pointer;
@@ -69,7 +71,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 12rem
+  margin-left: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+.shareBtn:hover {
+  background-color: #ff3a03;
+  font-size: 1.1rem;
 }
 .shareAddIcon {
   width: 10%;
@@ -83,7 +90,8 @@
   /* border: 2px solid black; */
   width: 30px;
   height: 31px;
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem; */
+  margin-left: 1rem;
 }
 .shareImg {
   width: 100%;
@@ -95,4 +103,89 @@
   right: 20px;
   cursor: pointer;
   opacity: 0.7;
+}
+
+@media only screen and (max-width: 533px) {
+  .shareIcon {
+    font-size: 12px;
+  }
+  .shareOptionText {
+    font-size: 15px;
+  }
+  .photo_video {
+    /* border: 2px solid black; */
+    width: 80%;
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 510px) {
+  .shareIcon {
+    font-size: 10px;
+  }
+  .shareOptionText {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 486px) {
+  .shareBottom {
+    /* border: 2px solid red; */
+    height: 3rem;
+  }
+  .shareOptions {
+    /* border: 2px solid green; */
+    width: 70%;
+  }
+  .shareOption {
+    /* border: 2px solid blue; */
+    margin-left: 15px;
+    height: 2rem;
+  }
+  .shareIcon {
+    font-size: 10px;
+  }
+  .shareOptionText {
+    font-size: 12px;
+  }
+  .photo_video {
+    /* border: 2px solid black; */
+    width: 80%;
+    font-size: 10px;
+  }
+
+  .shareBtn {
+    /* border: 2px solid red; */
+    margin-left: 2rem;
+  }
+}
+@media only screen and (max-width: 474px) {
+  .shareBottom {
+    /* border: 2px solid red; */
+    height: 3rem;
+  }
+  .shareOptions {
+    /* border: 2px solid green; */
+    width: 80%;
+    margin-left: 0;
+  }
+  .shareOption {
+    /* border: 2px solid blue; */
+    margin-left: 5px;
+    height: 2rem;
+  }
+  .shareIcon {
+    font-size: 8px;
+  }
+  .shareOptionText {
+    font-size: 10px;
+  }
+  .photo_video {
+    /* border: 2px solid black; */
+    width: 70%;
+    font-size: 10px;
+  }
+
+  .shareBtn {
+    /* border: 2px solid red; */
+    margin-left: 0.4rem;
+  }
 }

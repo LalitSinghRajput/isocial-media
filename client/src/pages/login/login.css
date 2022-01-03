@@ -28,10 +28,14 @@
   font-size: 50px;
   font-weight: bold;
   color: #1775ee;
+  font-family: var(--font-family);
   margin-bottom: 10px;
+  text-align: center;
 }
 .loginDesc {
   font-size: 24px;
+  font-family: var(--font-family);
+  text-align: center;
 }
 .loginBox {
   height: 300px;
@@ -154,7 +158,7 @@
     font-size: 1.8rem;
   }
   .loginLeft .loginDesc {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   .loginRight,
   .loginLeft {
@@ -170,7 +174,7 @@
     font-size: 1.5rem;
   }
   .loginLeft .loginDesc {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
   .loginRight,
   .loginLeft {
@@ -186,7 +190,7 @@
     font-size: 1.5rem;
   }
   .loginLeft .loginDesc {
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
   .loginRight,
   .loginLeft {

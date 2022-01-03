@@ -4,25 +4,34 @@ import { AuthContext } from '../../context/AuthContext';
 
 import Post from '../post/Post';
 import Share from '../share/Share';
+import Spinner from '../spinner/Spinner'
 
 import './feed.css';
 
 const Feed = ({ username }) => {
 
+    // console.log(username)
+
     const [posts, setPosts] = useState([]);
+    const [emptyPosts, setEmptyPosts] = useState(false)
     const { user } = useContext(AuthContext);
-    // console.log(user)
+    const currUser = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null
 
     useEffect(() => {
         const fetchPosts = async () => {
+
             const res = username
                 ? await axiosInstance.get('/posts/profile/' + username)
                 : await axiosInstance.get('/posts/timeline/' + user?._id);
 
+            if (res.data.length === 0) {
+                setEmptyPosts(true)
+            }
+
             // sort post according to latest
             setPosts(
                 res.data.sort((p1, p2) => {
-                    return (p1 !== null) && (p2 !== null) && new Date(p2.createdAt) - new Date(p1.createdAt);
+                    return new Date(p2?.createdAt) - new Date(p1?.createdAt);
                 })
             );
 
@@ -35,16 +44,20 @@ const Feed = ({ username }) => {
         <div className="feed">
             <div className="feedWrapper">
 
-                {(username === user?.username) && <Share />}
+                {(currUser?.username === username) && <Share />}
 
+                {
+                    !emptyPosts && posts.length === 0 &&
+                    (<div className="spinnerContainer">
+                        <Spinner />
+                    </div>)
+                }
                 {/* timeline posts */}
                 {
                     posts.map((p) => (
-                        (p !== null) &&
                         <Post
                             key={p._id}
                             post={p}
-                            img={posts.img}
                         />
                     ))
                 }

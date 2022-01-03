@@ -13,10 +13,14 @@ const Home = ({ username }) => {
     return (
         <>
             <Topbar />
-            <div className="homeContainer">
-                <Sidebar user={user} />
-                <Feed username={username} />
-                <Rightbar user={user} isProfilePage={true} />
+            <div className="homeDiv">
+                <div className="homeSidebar">
+                    <Sidebar user={user} />
+                </div>
+                <div className="homeContainer">
+                    <Feed />
+                    <Rightbar user={user} isProfilePage={true} />
+                </div>
             </div>
 
         </>

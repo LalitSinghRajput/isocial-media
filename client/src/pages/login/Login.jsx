@@ -34,8 +34,8 @@ const Login = () => {
         <div className="login">
             <div className="loginWrapper">
                 <div className="loginLeft">
-                    <h3 className="loginLogo">iSocial</h3>
-                    <span className="loginDesc">Connect with friends and the world around you on iSocial</span>
+                    <h3 className="loginLogo">iSocial Media</h3>
+                    <span className="loginDesc">Connect with friends and the world around you on iSocial Media</span>
                 </div>
                 <div className="loginRight">
                     <form className="loginBox" onSubmit={handleClick} method="POST">
@@ -50,7 +50,6 @@ const Login = () => {
                             ref={password} />
                         <button type="submit" className="loginBtn"
                             disabled={isFetching}>{isFetching ? <CircularProgress color="white" size="20px" /> : "Log In"}</button>
-                        <span className="loginForgot">Forgot Password</span>
                         <button className="loginRegisterBtn" onClick={handleCreateAccount}>{isFetching ? <CircularProgress color="white" size="20px" /> : <span className='
                         loginNewAccTxt'>Create a New Account</span>}</button>
                     </form>

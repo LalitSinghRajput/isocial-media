@@ -52,8 +52,8 @@ const Register = () => {
         <div className="login">
             <div className="loginWrapper">
                 <div className="loginLeft">
-                    <h3 className="loginLogo">iSocial</h3>
-                    <span className="loginDesc">Connect with friends and the world around you on iSocial</span>
+                    <h3 className="loginLogo">iSocial Media</h3>
+                    <span className="loginDesc">Connect with friends and the world around you on iSocial Media</span>
                 </div>
                 <div className="loginRight">
                     <form className="loginBox" onSubmit={handleClick}>

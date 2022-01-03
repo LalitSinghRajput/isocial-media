@@ -1,23 +1,19 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthContext'
+// import { AuthContext } from '../../context/AuthContext'
 import { axiosInstance } from '../../config';
 
 import './friendSuggestion.css'
-
-import { Add, Remove } from '@material-ui/icons';
 import defaultAvtar from '../../assets/Person images/defaultAvtar.jpg';
 
-const FriendSuggestion = () => {
+const FriendSuggestion = ({ user }) => {
 
-    const user = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null
-    const [allusers, setAllusers] = useState([]);
-    const { user: currentUser, dispatch } = useContext(AuthContext);
     const currUser = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null
+    const [allusers, setAllusers] = useState([]);
+    // const { user:currentUser, dispatch } = useContext(AuthContext);
+    // const [followed, setFollowed] = useState(currUser?.followings?.includes(user._id))
 
-    const [followed, setFollowed] = useState(currUser?.followings?.includes(user._id))
-
-    const userFollowings = user?.followings;
+    const userFollowings = currUser?.followings;
 
     useEffect(() => {
         const fetchAllUsers = async () => {
@@ -36,23 +32,26 @@ const FriendSuggestion = () => {
 
     }, []);
 
-    const handleFollowClick = async () => {
-        try {
-            if (followed) {
-                await axiosInstance.put("/users/" + user._id + "/unfollow", { userId: currentUser._id });
+    // const handleFollowClick = async (friend) => {
+    //     console.log(friend);
+    //     console.log("Sending follow request to " + friend?.username);
+    //     setFollowed(userFollowings.includes(friend._id))
+    //     try {
+    //         if (followed) {
+    //             await axiosInstance.put("/users/" + friend._id + "/unfollow", { userId: user._id });
 
-                dispatch({ type: "UNFOLLOW", payload: user._id })
-            }
-            else {
-                await axiosInstance.put("/users/" + user._id + "/follow", { userId: currentUser._id })
-                dispatch({ type: "FOLLOW", payload: user._id })
+    //             dispatch({ type: "UNFOLLOW", payload: user._id })
+    //         }
+    //         else {
+    //             await axiosInstance.put("/users/" + friend._id + "/follow", { userId: user._id })
+    //             dispatch({ type: "FOLLOW", payload: user._id })
 
-            }
-            setFollowed(!followed)
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    //         }
+    //         setFollowed(userFollowings.includes(friend._id))
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
     return (
         <>
@@ -68,12 +67,17 @@ const FriendSuggestion = () => {
                                             <p className="sidebarFriendName">{u.username}</p>
                                         </div>
                                     </Link>
-                                    <button className="rightbarFollowingBtn" onClick={handleFollowClick}>
+                                    {/* <div className="rightBarFollowBtnContainer"> */}
 
-                                        {followed ? "Unfollow" : "Follow"}
-                                        {followed ? <Remove /> : <Add />}
+                                    {/* <button className="rightBarFollowBtn" onClick={() => handleFollowClick(u)}> */}
 
-                                    </button>
+                                    {/* {setFollowed(userFollowings?.includes(u?._id))} */}
+                                    {/* {followed ? "Unfollow" : "Follow"} */}
+                                    {/* {userFollowings?.includes(u?._id) ? <span>Unfollow</span> : <span>Follow</span>} */}
+                                    {/* {userFollowings?.includes(u?._id) ? <Remove /> : <Add />} */}
+
+                                    {/* </button> */}
+                                    {/* </div> */}
                                 </div>
                             )
                         )
