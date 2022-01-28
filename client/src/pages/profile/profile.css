@@ -204,6 +204,9 @@
   }
 }
 @media only screen and (max-width: 500px) {
+  .profileCover {
+    margin-left: 0.5rem;
+  }
   .profileCoverImg {
     height: 180px;
   }

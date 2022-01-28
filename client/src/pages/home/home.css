@@ -8,12 +8,14 @@
   display: flex;
 }
 
-
 @media only screen and (max-width: 1000px) {
   .homeContainer {
     flex-direction: column-reverse;
   }
   .homeSidebar {
-    width: 2%;
+    width: 5%;
+  }
+  .feed {
+    margin-right: 1rem;
   }
 }

@@ -18,7 +18,7 @@ const Home = ({ username }) => {
                     <Sidebar user={user} />
                 </div>
                 <div className="homeContainer">
-                    <Feed />
+                    <Feed username={user.username} />
                     <Rightbar user={user} isProfilePage={true} />
                 </div>
             </div>

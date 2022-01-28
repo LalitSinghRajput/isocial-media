@@ -156,6 +156,12 @@
 .rightbarFollowingBtn:focus {
   outline: none;
 }
+.unfollowBtn,
+.followBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .unfollowBtn {
   background-color: #fa0000;
   cursor: pointer;
@@ -202,5 +208,17 @@
   }
   .rightBarfollowerTitle {
     font-size: 1.1rem;
+  }
+  .unfollowBtn,
+  .followBtn {
+    font-size: 0.9rem;
+    width: 28%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .unfollowBtn,
+  .followBtn {
+    font-size: 1rem;
+    width: 30%;
   }
 }
