@@ -94,8 +94,8 @@ const Post = ({ post }) => {
                                     {/* <div className="moreOptionsDiv">
                                     <DeleteOutlineRounded onClick={deletePostHandle} /> Update Post
                                 </div> */}
-                                    <div className="moreOptionsDiv">
-                                        <Delete onClick={deletePostHandle} /> <span className="moreOptionsDeleteTitle">Delete Post</span>
+                                    <div className="moreOptionsDiv" onClick={deletePostHandle}>
+                                        <Delete /> <span className="moreOptionsDeleteTitle">Delete Post</span>
                                     </div>
 
                                 </div>

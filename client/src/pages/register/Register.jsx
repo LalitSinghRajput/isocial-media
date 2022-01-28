@@ -58,7 +58,7 @@ const Register = () => {
                 <div className="loginRight">
                     <form className="loginBox" onSubmit={handleClick}>
                         <input
-                            placeholder="Username"
+                            placeholder="Username (atleast 4 character long )"
                             className="loginInput"
                             required
                             ref={username}
@@ -71,7 +71,7 @@ const Register = () => {
                             type="email"
                         />
                         <input
-                            placeholder="Password"
+                            placeholder="Password (atleast 6 character long)"
                             className="loginInput"
                             required
                             ref={password}

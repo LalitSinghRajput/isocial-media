@@ -57,7 +57,7 @@
   transition: all 0.8s ease-in-out;
 }
 .sidebarCollapse {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   display: none;
   position: relative;
   width: 3%;
@@ -203,10 +203,10 @@
   }
 }
 @media only screen and (max-width: 500px) {
-  .expand_coallapseImg {
+  /* .expand_coallapseImg {
     width: 18px;
     height: 18px;
-  }
+  } */
   .sidebarWrapper {
     width: 70%;
   }

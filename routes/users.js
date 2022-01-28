@@ -48,7 +48,6 @@ router.delete('/:id', authenticate, async (req, res) => {
             const user = await User.findByIdAndDelete(req.params.id);
             res.status(200).json('Account has been deleted successfully')
         } catch (error) {
-            console.log('not able to delete')
             return res.status(500).json(error);
         }
     }
@@ -104,8 +103,20 @@ router.get("/followers/:userId", async (req, res) => {
     try {
         const user = await User.findById(req.params.userId);
         const friends = await Promise.all(
-            user.followers.map((friendId) => {
-                return User.findById(friendId);
+            user.followers.map(async (friendId) => {
+                let friend = await User.findById(friendId);
+                if (friend) {
+                    return friend;
+                }
+                else {
+                    const newFollowersList = user.followers.filter(function (item) {
+                        return item !== friendId
+                    })
+
+                    await User.updateOne({ _id: user._id }, { $set: { followers: newFollowersList } })
+                    console.log(newFollowersList)
+
+                }
             })
         );
         let friendList = [];
@@ -124,11 +135,23 @@ router.get("/followings/:userId", async (req, res) => {
     try {
         const user = await User.findById(req.params.userId);
         const friends = await Promise.all(
-            user.followings.map((friendId) => {
-                //   console.log(friendId);
-                return User.findById(friendId);
+            user.followings.map(async (friendId) => {
+                let friend = await User.findById(friendId);
+                if (friend) {
+                    return friend;
+                }
+                else {
+                    const newFollowingsList = user.followings.filter(function (item) {
+                        return item !== friendId
+                    })
+
+                    await User.updateOne({ _id: user._id }, { $set: { followings: newFollowingsList } })
+
+                }
+
             })
         );
+
         let friendList = [];
         friends.map((friend) => {
             const { _id, username, profilePicture } = friend;

@@ -47,10 +47,6 @@ const Topbar = () => {
         try {
             const confirmDelete = window.confirm("Are you sure you want to delete your account permanently?");
 
-            // remove user id from the friends user is following the
-            console.log("Users followings")
-            console.log(user.followings);
-            // const followingsList = user.followings;
             if (confirmDelete) {
                 const res = await axiosInstance.delete("/users/" + user._id, { data: { userId: user._id } }, { headers: {}, Credentials: "include" });
 
