@@ -240,7 +240,7 @@ const Profile = () => {
                     </div>
 
                     <div className="profileRightBottom">
-                        <Feed username={username} />
+                        <Feed username={username} isProfilePage={true} />
                         <Rightbar user={user} />
                     </div>
 

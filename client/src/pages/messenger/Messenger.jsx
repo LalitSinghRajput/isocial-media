@@ -36,10 +36,10 @@ const Messenger = () => {
     }, [])
 
     useEffect(() => {
-        if (arrivalMessage && currentChat) {
-            currentChat.members.includes(arrivalMessage.sender) && setMessages((prev) => [...prev, arrivalMessage]);
-        }
-    }, [arrivalMessage, currentChat])
+        arrivalMessage &&
+            currentChat?.members.includes(arrivalMessage.sender) &&
+            setMessages((prev) => [...prev, arrivalMessage]);
+    }, [arrivalMessage, currentChat]);
 
     useEffect(() => {
         socket.current.emit("addUser", user._id)
