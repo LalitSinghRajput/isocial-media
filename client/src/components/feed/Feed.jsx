@@ -8,7 +8,7 @@ import Spinner from '../spinner/Spinner'
 
 import './feed.css';
 
-const Feed = ({ username }) => {
+const Feed = ({ username, isProfilePage }) => {
 
     // console.log(username)
 
@@ -20,9 +20,18 @@ const Feed = ({ username }) => {
     useEffect(() => {
         const fetchPosts = async () => {
 
-            const res = username
-                ? await axiosInstance.get('/posts/profile/' + username)
-                : await axiosInstance.get('/posts/timeline/' + user?._id);
+            // const res = username
+            //     ? await axiosInstance.get('/posts/profile/' + username)
+            //     : await axiosInstance.get('/posts/timeline/' + user?._id);
+            const userPost = await axiosInstance.get('/posts/profile/' + username);
+            const timeLinePost = await axiosInstance.get('/posts/timeline/' + user?._id);
+            let res = userPost;
+            if (!isProfilePage)
+                res = { ...timeLinePost };
+
+            // console.log(userPost);
+            // console.log(timeLinePost.data);
+            console.log(res);
 
             if (res.data.length === 0) {
                 setEmptyPosts(true)
@@ -38,7 +47,7 @@ const Feed = ({ username }) => {
         };
         fetchPosts();
 
-    }, [username, user._id]);
+    }, [username, user._id, isProfilePage]);
 
     return (
         <div className="feed">

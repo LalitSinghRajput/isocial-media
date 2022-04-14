@@ -34,6 +34,10 @@ const authenticate = async (req, res, next) => {
     }
 
 }
+// const authenticate = async (req, res, next) => {
+//     console.log("Authenticating");
+//     next();
+// }
 
 
 export default authenticate;

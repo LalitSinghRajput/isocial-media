@@ -32,6 +32,7 @@ const ChatOnline = ({ onlineUsers, currentId, setCurrentChat }) => {
 
     return (
         <div className="chatOnline">
+            <h1>Online Friends</h1>
             {
                 onlineFriends.map(o => (
 

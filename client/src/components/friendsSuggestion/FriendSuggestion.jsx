@@ -59,7 +59,7 @@ const FriendSuggestion = ({ user }) => {
                 {
                     allusers.map(u => {
                         return (
-                            (!userFollowings?.includes(u?._id)) && (user?._id !== u?._id) && (
+                            (!userFollowings?.includes(u?._id)) && (currUser?._id !== u?._id) && (
                                 <div className="rightbarFollowersection" key={u._id}>
                                     <Link to={"/profile/" + u.username} className="friendUsername" >
                                         <div className="sidebarFriend">
