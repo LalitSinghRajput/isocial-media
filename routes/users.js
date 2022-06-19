@@ -3,6 +3,7 @@ const router = express.Router();
 import User from '../models/User.js';
 import bycrypt from 'bcrypt';
 import authenticate from '../middleware/authenticate.js';
+import Post from '../models/Post.js';
 
 
 // UPDATE USER
@@ -80,6 +81,24 @@ router.get('/', authenticate, async (req, res) => {
         res.status(500).json(error);
     }
 })
+
+// get all posts from database
+router.get('/getallposts', async (req, res) => {
+    try {
+
+        await Post.find({}, function (err, posts) {
+            if (err) {
+                res.send("something went wrong");
+                next();
+            }
+            res.json(posts)
+        })
+
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 
 // get all users from database
 router.get('/getallusers', async (req, res) => {

@@ -1,6 +1,8 @@
 import { axiosInstance } from '../../config';
 import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
+import userImg from '../../assets/icons/user.png'
+import iSocialMediaLogo from '../../assets/logo/iSocialMediaLogo.png'
 
 import './register.css'
 
@@ -52,11 +54,13 @@ const Register = () => {
         <div className="login">
             <div className="loginWrapper">
                 <div className="loginLeft">
+                    <img src={iSocialMediaLogo} alt="." className="loginUserImg" />
                     <h3 className="loginLogo">iSocial Media</h3>
-                    <span className="loginDesc">Connect with friends and the world around you on iSocial Media</span>
+                    <span className="loginDesc"></span>
                 </div>
                 <div className="loginRight">
                     <form className="loginBox" onSubmit={handleClick}>
+                        <img src={userImg} alt="." className="loginUserImg" />
                         <input
                             placeholder="Username (atleast 4 character long )"
                             className="loginInput"
@@ -89,7 +93,7 @@ const Register = () => {
 
                         />
                         <button className="loginBtn" type="submit">Sign Up</button>
-                        <button className="loginRegisterBtn" onClick={handleLogintoAccount} >Login into Account</button>
+                        <button className="createAccountButton" onClick={handleLogintoAccount} >Login into Account</button>
                     </form>
                 </div>
             </div>

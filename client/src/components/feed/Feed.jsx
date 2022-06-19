@@ -24,7 +24,7 @@ const Feed = ({ username, isProfilePage }) => {
             //     ? await axiosInstance.get('/posts/profile/' + username)
             //     : await axiosInstance.get('/posts/timeline/' + user?._id);
             const userPost = await axiosInstance.get('/posts/profile/' + username);
-            const timeLinePost = await axiosInstance.get('/posts/timeline/' + user?._id);
+            const timeLinePost = await axiosInstance.get('/users/getallposts');
             let res = userPost;
             if (!isProfilePage)
                 res = { ...timeLinePost };
