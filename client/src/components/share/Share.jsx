@@ -5,7 +5,8 @@ import './share.css'
 import defaultAvtar from '../../assets/Person images/defaultAvtar.jpg';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import done from '../../assets/icons/done.png'
-import { PermMedia, EmojiEmotions, Label, CancelOutlined } from "@material-ui/icons"
+import media from '../../assets/icons/media.png'
+import { CancelOutlined } from "@material-ui/icons"
 
 import { AuthContext } from '../../context/AuthContext'
 import { axiosInstance } from '../../config';
@@ -83,7 +84,7 @@ const Share = () => {
                     </Link>
 
                     <input type="text" className="shareInput"
-                        ref={desc} placeholder={`What's in your  mind ${user.username} ?`} />
+                        ref={desc} placeholder={`Share something ${user.username} ?`} />
                 </div>
                 <hr className="shareHr" />
 
@@ -100,22 +101,13 @@ const Share = () => {
 
                         <label htmlFor="file" className="shareOption">
 
-                            <PermMedia htmlColor="tomato" className="shareIcon" />
-                            <span className="photo_video">Photo or Video</span>
+                            {/* <PermMedia htmlColor="tomato" className="shareIcon" /> */}
+                            <img src={media} alt="." className="shareIcon" />
+                            <span className="photo_video">Select Photo/Video</span>
 
                             <input style={{ display: "none" }} type="file" name="filename" id="file" accept=".png,.jpg,.jpeg," onChange={(e) => setPostFile(e.target.files[0])} />
 
                         </label>
-                        <div className="shareOption">
-                            <Label htmlColor="blue" className="shareIcon" />
-                            <span className="shareOptionText">Tag</span>
-                        </div>
-
-                        <div className="shareOption">
-                            <EmojiEmotions
-                                htmlColor="rgb(206, 185, 66)" className="shareIcon" />
-                            <span className="shareOptionText">Feelings</span>
-                        </div>
                     </div>
                     <button type="submit" className="shareBtn">
                         <span>Share</span>

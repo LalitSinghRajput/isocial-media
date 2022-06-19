@@ -14,6 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .loginLeft,
 .loginRight {
@@ -22,6 +23,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 50%;
 }
 
 .loginLogo {
@@ -67,6 +69,27 @@
   border-radius: 10px;
   border: none;
   background-color: #1775ee;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.guestBtn{
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(255, 119, 0);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+
+}
+.createAccountButton{
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #42b72a;
   color: #fff;
   font-size: 20px;
   font-weight: 500;
@@ -198,6 +221,6 @@
     height: 100%;
   }
   .loginNewAccTxt {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 }

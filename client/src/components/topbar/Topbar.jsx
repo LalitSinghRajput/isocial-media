@@ -45,20 +45,26 @@ const Topbar = () => {
 
     const handleDeleteAccount = async () => {
         try {
-            const confirmDelete = window.confirm("Are you sure you want to delete your account permanently?");
+            const guestEmail = process.env.REACT_APP_GUEST_EMAIL
+            if (user.email === guestEmail) {
+                alert('You cannot delte Guest account');
+            }
+            else {
+                const confirmDelete = window.confirm("Are you sure you want to delete your account permanently?");
 
-            if (confirmDelete) {
-                const res = await axiosInstance.delete("/users/" + user._id, { data: { userId: user._id } }, { headers: {}, Credentials: "include" });
+                if (confirmDelete) {
+                    const res = await axiosInstance.delete("/users/" + user._id, { data: { userId: user._id } }, { headers: {}, Credentials: "include" });
 
-                localStorage.removeItem("user");
+                    localStorage.removeItem("user");
 
-                navigate('/register', { replace: true });
-                window.location.reload();
-                alert('Successfully deleted');
+                    navigate('/register', { replace: true });
+                    window.location.reload();
+                    alert('Successfully deleted');
 
-                if (res.status !== 200) {
-                    const error = new Error(res.error);
-                    throw error;
+                    if (res.status !== 200) {
+                        const error = new Error(res.error);
+                        throw error;
+                    }
                 }
             }
 

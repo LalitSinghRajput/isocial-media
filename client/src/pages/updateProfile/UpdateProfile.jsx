@@ -30,13 +30,19 @@ const UpdateProfile = () => {
         // update profile to server
         const updateProfile = async () => {
             try {
-                await axiosInstance.put("/users/" + user._id, updatedProfile, { headers: {}, Credentials: "include" })
+                const guestEmail = process.env.REACT_APP_GUEST_EMAIL
+                if (user.email === guestEmail) {
+                    alert('You cannot update Guest account');
+                }
+                else {
+                    await axiosInstance.put("/users/" + user._id, updatedProfile, { headers: {}, Credentials: "include" })
 
-                // update user in localStorage
-                const UpdatedUser = Object.assign(user, updatedProfile);
-                localStorage.setItem("user", JSON.stringify(UpdatedUser))
+                    // update user in localStorage
+                    const UpdatedUser = Object.assign(user, updatedProfile);
+                    localStorage.setItem("user", JSON.stringify(UpdatedUser))
 
-                navigate('/profile/' + user.username);
+                    navigate('/profile/' + user.username);
+                }
             } catch (error) {
                 console.log(error);
             }
