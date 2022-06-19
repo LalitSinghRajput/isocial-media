@@ -75,9 +75,9 @@ const Post = ({ post }) => {
 
                         <Link to={`profile/${user.username}`}>
                             <img className="postProfileimg" src={user.profilePicture ? user.profilePicture : defaultAvtar} alt="." />
+                            <span className="postUsername">{user.username}</span>
                         </Link>
 
-                        <span className="postUsername">{user.username}</span>
                         <span className="postDate">{format(post.createdAt)}</span>
                     </div>
                     {(user?._id === currentUser?._id) &&
