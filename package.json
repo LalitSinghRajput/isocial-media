@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "engines": {
     "node": "14.17.4",
-    "npm":"7.20.3"
+    "npm": "7.20.3"
   },
   "description": "Backend of social media",
   "main": "index.js",

@@ -33,10 +33,12 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }, () => {
     console.log('Connected to MongoDB successfully');
 })
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static('client/build'));
 
-}
+// }
+
+app.use(express.static(path.join(__dirname, './client/build')));
 
 
 //TODO MiddleWares

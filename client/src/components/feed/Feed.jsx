@@ -5,6 +5,7 @@ import { AuthContext } from '../../context/AuthContext';
 import Post from '../post/Post';
 import Share from '../share/Share';
 import Spinner from '../spinner/Spinner'
+import { FaArrowCircleUp } from "react-icons/fa";
 
 import './feed.css';
 
@@ -16,6 +17,7 @@ const Feed = ({ username, isProfilePage }) => {
     const [emptyPosts, setEmptyPosts] = useState(false)
     const { user } = useContext(AuthContext);
     const currUser = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -49,6 +51,26 @@ const Feed = ({ username, isProfilePage }) => {
 
     }, [username, user._id, isProfilePage]);
 
+    const scrollToTop = () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll", listenToScroll);
+        return () =>
+            window.removeEventListener("scroll", listenToScroll);
+    }, [])
+
+    const listenToScroll = () => {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            setIsVisible(true);
+        } else {
+            setIsVisible(false);
+        }
+    };
+
+
     return (
         <div className="feed">
             <div className="feedWrapper">
@@ -60,6 +82,11 @@ const Feed = ({ username, isProfilePage }) => {
                     (<div className="spinnerContainer">
                         <Spinner />
                     </div>)
+                }
+                {
+                    isVisible
+                    &&
+                    <FaArrowCircleUp className="scrollTop" id="scrollTop" onClick={scrollToTop} />
                 }
                 {/* timeline posts */}
                 {
