@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom';
 import { axiosInstance } from '../../config';
 import { format } from 'timeago.js';
 import { AuthContext } from '../../context/AuthContext'
@@ -59,7 +58,7 @@ const Post = ({ post }) => {
             const confirmDelete = window.confirm('Are you sure you want to delete this post?');
             if (confirmDelete) {
                 axiosInstance.delete("/posts/" + post._id, { data: { userId: currentUser._id } })
-                console.log(currentUser._id);
+                // console.log(currentUser._id);
                 window.location.reload();
             }
         } catch (error) {
@@ -73,10 +72,10 @@ const Post = ({ post }) => {
                 <div className="postTop">
                     <div className="postTopLeft">
 
-                        <Link to={`profile/${user.username}`}>
+                        <a href={`#/profile/${user.username}`}>
                             <img className="postProfileimg" src={user.profilePicture ? user.profilePicture : defaultAvtar} alt="." />
                             <span className="postUsername">{user.username}</span>
-                        </Link>
+                        </a>
 
                         <span className="postDate">{format(post.createdAt)}</span>
                     </div>

@@ -33,7 +33,7 @@ const Feed = ({ username, isProfilePage }) => {
 
             // console.log(userPost);
             // console.log(timeLinePost.data);
-            console.log(res);
+            // console.log(res);
 
             if (res.data.length === 0) {
                 setEmptyPosts(true)

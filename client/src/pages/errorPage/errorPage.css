@@ -1,5 +1,37 @@
 .errorContainer {
+  /* border: 2px solid red; */
+  height: 80vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Errormsg{
+  /* border: 2px solid blue; */
+  height: 100%;
+  width: 100%;
+}
+.go_back_container{
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.go_back{
+  width: 10rem;
+}
+.go_back:hover{
+  color: white  ;
+  background-color: blue;
+  cursor: pointer;
+}
+@media only screen and (max-width: 1050px) {
+  .errorContainer{
+    /* border: 2px solid green; */
+    height: 70vh;
+  }
 }
